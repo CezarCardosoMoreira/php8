@@ -4,6 +4,8 @@
 $nome = $_POST['nome'];
 $email = $_POST['email'];
 $mensagem = $_POST['mensagem'];
+$assunto = 'Email do site';
+$remetente = 'cezarcardosomoreira@gmail.com';
 
 
 //utf8 para não ter poblema com caracteries especiais
@@ -11,9 +13,13 @@ $conteudo = utf8_decode('Nome: ' .$nome ."\r\n" ."\r\n"
                        .'Email: ' .$email ."\r\n" ."\r\n" ."\r\n"
                        .'Mensagem: ' .$mensagem ."\r\n" ."\r\n");
 
-echo $conteudo;
 
+$cabecario = "From: ".$email;  
 
-
+mail($remetente, $assunto, $mensagem, $cabecario);
 
 ?>
+<script>alert('Enviado com Sucesso');</script>
+<meta http-equiv="reflesh" content="0; url=index.php">
+
+
