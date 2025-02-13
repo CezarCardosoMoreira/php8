@@ -16,7 +16,15 @@ $conteudo = utf8_decode('Nome: ' .$nome ."\r\n" ."\r\n"
 
 $cabecario = "From: ".$email;  
 
-mail($remetente, $assunto, $mensagem, $cabecario);
+
+
+try {
+    mail($remetente, $assunto, $mensagem, $cabecario);
+} catch (\Throwable $th) {
+    echo "O email não pode ser enviado 
+    caso você esteja em um servidor local,
+     hospede seu projeto e depois faça o teste de envio";
+}
 
 ?>
 <script>alert('Enviado com Sucesso');</script>
